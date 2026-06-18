@@ -1,6 +1,23 @@
 import type { Metadata } from 'next';
+import { Anonymous_Pro, Geist, Vazirmatn } from 'next/font/google';
 import './globals.css';
-import { TooltipProvider } from '@/components/ui/tooltip';
+import AppProvider from '@/app/app-provider';
+
+const geist = Geist({
+	subsets: ['latin'],
+	variable: '--font-geist',
+});
+
+const vazirmatn = Vazirmatn({
+	subsets: ['arabic', 'latin'],
+	variable: '--font-vazirmatn',
+});
+
+const anonymousPro = Anonymous_Pro({
+	subsets: ['latin'],
+	weight: ['400', '700'],
+	variable: '--font-anonymous-pro',
+});
 
 export const metadata: Metadata = {
 	title: 'Create Next App',
@@ -13,9 +30,9 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="fa" dir="rtl" className={`h-full antialiased`}>
+		<html lang="en" dir="ltr" className={`${geist.variable} ${vazirmatn.variable} ${anonymousPro.variable} h-full antialiased`}>
 			<body className="min-h-full flex flex-col">
-				<TooltipProvider>{children}</TooltipProvider>
+				<AppProvider>{children}</AppProvider>
 			</body>
 		</html>
 	);
