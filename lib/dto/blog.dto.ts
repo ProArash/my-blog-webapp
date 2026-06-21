@@ -1,41 +1,23 @@
 export type CreateBlogDto = {
-  title: string
-  slug: string
-  description: string
-  canonical_url?: string
-  noindex?: boolean
-  nofollow?: boolean
-  status?: "draft" | "published" | "archived"
-  published_at?: string
-  featured_image_id?: number
-  mediaIds?: string[]
-}
-
-export type UpdateBlogDto = {
-  title?: string
-  slug?: string
-  description?: string
-  canonical_url?: string
-  noindex?: boolean
-  nofollow?: boolean
-  status?: "draft" | "published" | "archived"
-  published_at?: string
-  featured_image_id?: number
-  mediaIds?: string[]
-}
+	title: string;
+	slug: string;
+	description: string;
+	canonical_url?: string;
+	status?: 'draft' | 'published' | 'archived';
+	featured_image_id?: number;
+	mediaIds?: number[];
+};
 
 export type Blog = {
-  id: number
-  title: string
-  slug: string
-  description: string
-  canonical_url?: string
-  noindex?: boolean
-  nofollow?: boolean
-  status: "draft" | "published" | "archived"
-  published_at?: string
-  featured_image_id?: number
-  mediaIds?: string[]
-  created_at: string
-  updated_at: string
-}
+	id: number;
+	slug: string;
+	title: string;
+	status: string;
+	published_at: string;
+	updatedAt: string;
+	featured_image: {
+		title: string;
+		url: string;
+		disable: boolean;
+	};
+};
